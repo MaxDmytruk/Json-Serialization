@@ -1,0 +1,52 @@
+[
+  {
+    "firstName": "Andrew",
+    "lastName": "Yarmolenko",
+    "salary": 5000,
+    "country": "Ukraine",
+    "club": {
+      "name": "Borussia Dortmund",
+      "country": "Germany"
+    }
+  },
+  {
+    "firstName": "Eugene",
+    "lastName": "Konoplianka",
+    "salary": 4500,
+    "country": "Ukraine",
+    "club": {
+      "name": "Schalke 04",
+      "country": "Germany"
+    }
+  },
+  {
+    "firstName": "Dele",
+    "lastName": "Ali",
+    "salary": 7000,
+    "country": "England",
+    "club": {
+      "name": "Tottenham",
+      "country": "England"
+    }
+  },
+  {
+    "firstName": "David",
+    "lastName": "De Gea",
+    "salary": 8000,
+    "country": "Spain",
+    "club": {
+      "name": "Manchester United",
+      "country": "England"
+    }
+  },
+  {
+    "firstName": "Josep",
+    "lastName": "Guardiola",
+    "salary": 9000,
+    "country": "Spain",
+    "club": {
+      "name": "Manchester City",
+      "country": "England"
+    }
+  }
+]
