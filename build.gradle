@@ -3,6 +3,7 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -18,4 +19,9 @@ dependencies {
     compile group: 'org.json', name: 'json', version: '20090211'
     compile group: 'com.google.code.gson', name: 'gson', version: '1.7.2'
 }
-
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
