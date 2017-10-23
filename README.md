@@ -1,0 +1,3 @@
+[![codecov](https://codecov.io/gh/MaxDmytruk/Json-Serialization/branch/master/graph/badge.svg)](https://codecov.io/gh/MaxDmytruk/Json-Serialization)
+[![Build Status](https://travis-ci.org/MaxDmytruk/Json-Serialization.svg?branch=master)](https://travis-ci.org/MaxDmytruk/Json-Serialization)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0047c33fc6af4b288f128cbc959c4a69)](https://www.codacy.com/app/MaxDmytruk/Json-Serialization?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MaxDmytruk/Json-Serialization&amp;utm_campaign=Badge_Grade)
