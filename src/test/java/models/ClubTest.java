@@ -22,7 +22,7 @@ public class ClubTest {
     @Test
     public void getCountry() throws Exception {
         Club newClub = new Club("Test Club", Country.Brazil);
-        assertEquals("Test Club", newClub.getCountry());
+        assertEquals( Country.Brazil, newClub.getCountry());
     }
 
     @Test

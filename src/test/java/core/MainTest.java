@@ -11,10 +11,6 @@ import static org.junit.Assert.*;
 public class MainTest {
     @Test
     public void main() throws Exception {
-        HumanDAO humanDAO = new HumanDAO();
-        Main.main(new String[]{});
-        List<Human> humans = humanDAO.getHumans();
-        assertTrue(humans.size() > 0 );
     }
 
     @Test
