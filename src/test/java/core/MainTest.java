@@ -4,6 +4,7 @@ import data.HumanDAO;
 import models.Human;
 import org.junit.Test;
 
+import java.nio.file.Paths;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -24,6 +25,11 @@ public class MainTest {
     public void nanoSecondsInSeconds() throws Exception {
         double result = Main.nanoSecondsInSeconds((long)Math.pow(10, 9));
         assertEquals(result, 1 ,0);
+    }
+
+    @Test
+    public void writeJsonToFile() throws Exception {
+        assertEquals(0, Main.writeJsonToFile("Hello tests!", Paths.get("./test.txt")));
     }
 
     @Test

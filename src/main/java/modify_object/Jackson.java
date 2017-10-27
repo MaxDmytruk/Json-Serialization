@@ -1,4 +1,4 @@
-package modifyObject;
+package modify_object;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,8 +35,6 @@ public class Jackson implements ModifyObject {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             byte[] jsonData = Files.readAllBytes(path);
-            List<Human> result = new ArrayList<>();
-
             List<Human> deserializedObjects = objectMapper.readValue(jsonData, new TypeReference<List<Human>>(){});
             return deserializedObjects;
         }catch (IOException e){

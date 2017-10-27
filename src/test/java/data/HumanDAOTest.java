@@ -1,17 +1,14 @@
 package data;
 
-import models.Club;
 import models.Human;
 import org.junit.Test;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class HumanDAOTest {
 
-    HumanDAO humanDAO = new HumanDAO();
+    private HumanDAO humanDAO = new HumanDAO();
 
     @Test
     public void getHumans() throws Exception {

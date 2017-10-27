@@ -1,4 +1,4 @@
-package modifyObject;
+package modify_object;
 
 import enums.Country;
 import models.Club;

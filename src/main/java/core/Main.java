@@ -4,10 +4,10 @@ import data.HumanDAO;
 import enums.Country;
 import models.Club;
 import models.Human;
-import modifyObject.GoogleGSON;
-import modifyObject.Jackson;
-import modifyObject.ModifyObject;
-import modifyObject.OrgJSON;
+import modify_object.GoogleGSON;
+import modify_object.Jackson;
+import modify_object.ModifyObject;
+import modify_object.OrgJSON;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;
@@ -137,13 +137,15 @@ public class Main {
         return nano*Math.pow(10, -9);
     }
 
-    private static void writeJsonToFile(String humans, Path path){
+    public static int writeJsonToFile(String humans, Path path){
         byte[] humansData = humans.getBytes();
 
         try(OutputStream out = new BufferedOutputStream(Files.newOutputStream(path, CREATE, WRITE ))) {
             out.write(humansData);
+            return 0;
         } catch (IOException e) {
             e.printStackTrace();
+            return -1;
         }
     }
 
