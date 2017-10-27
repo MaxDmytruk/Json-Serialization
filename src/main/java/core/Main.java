@@ -1,8 +1,5 @@
 package core;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import data.HumanDAO;
 import enums.Country;
 import models.Club;
@@ -15,11 +12,8 @@ import modifyObject.OrgJSON;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.StringWriter;
-import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 import static java.nio.file.StandardOpenOption.*;
@@ -27,22 +21,32 @@ import static java.nio.file.StandardOpenOption.*;
 
 public class Main {
 
-    static final double BYTES_IN_MEGABYTE = 1048576.0;
+    private static final double BYTES_IN_MEGABYTE = 1048576.0;
 
-    public static void main(String args[]){
-        HumanDAO humanDAO = new HumanDAO();
-        initWithData();
-        List<Human> humans = humanDAO.getHumans();
+    public static int main(String args[]){
+        try {
+            HumanDAO humanDAO = new HumanDAO();
+            initWithData();
+            List<Human> humans = humanDAO.getHumans();
 
-        measure(humans);
+            measure(humans);
+            return 0;
+        } catch(Exception ex){
+            ex.printStackTrace();
+            return -1;
+        }
     }
 
     private static void measure(List<Human> humans){
         ModifyObject target = new Jackson();
 
-        long startTime, finishTime, measureTimeInNanoSeconds;
+        long startTime;
+        long finishTime;
+        long measureTimeInNanoSeconds;
+        long startMemory;
+        long finishMemory;
+        long resultMemory;
         double measureTimeInSeconds;
-        long startMemory, finishMemory, resultMemory;
         double resultMBytes;
 
         startMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
@@ -108,7 +112,7 @@ public class Main {
         measureTimeInSeconds = nanoSecondsInSeconds(measureTimeInNanoSeconds);
         System.out.println("Serialize using GSON Google: " + measureTimeInSeconds);
         finishMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        resultMemory = finishMemory - startMemory;
+        resultMemory = Math.abs(finishMemory - startMemory);
         resultMBytes = bytesToMBytes(resultMemory);
         System.out.println("Serialize using GSON Google: " + resultMBytes + " Mb");
 
@@ -136,7 +140,7 @@ public class Main {
     private static void writeJsonToFile(String humans, Path path){
         byte[] humansData = humans.getBytes();
 
-        try(OutputStream out = new BufferedOutputStream(Files.newOutputStream(path, CREATE, APPEND))) {
+        try(OutputStream out = new BufferedOutputStream(Files.newOutputStream(path, CREATE, WRITE ))) {
             out.write(humansData);
         } catch (IOException e) {
             e.printStackTrace();

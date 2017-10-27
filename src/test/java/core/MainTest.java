@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 public class MainTest {
     @Test
     public void main() throws Exception {
+        assertEquals(0, Main.main(new String[]{}));
     }
 
     @Test
